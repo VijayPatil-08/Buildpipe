@@ -1,6 +1,5 @@
 ﻿using BuildPipeEditDockerProject.Models;
 using Microsoft.AspNetCore.Mvc;
-using Nest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +23,7 @@ namespace BuildPipeEditDockerProject.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Movie>> Get()
         {
-            var movies = _repository.GetMovies();
+            var movies = _repository.GetItems();
             if (movies.Count() == 0)
                 return BadRequest("No Movies");
             else
@@ -35,7 +34,7 @@ namespace BuildPipeEditDockerProject.Controllers
         [HttpGet("{id}")]
         public ActionResult<Movie> Get(int id)
         {
-            var movie = _repository.GetMovieById(id);
+            var movie = _repository.GetItemById(id);
             if (movie == null)
                 return BadRequest("No Movies with Id" + id);
             else

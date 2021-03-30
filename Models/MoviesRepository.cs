@@ -15,7 +15,7 @@ namespace BuildPipeEditDockerProject.Models
         
        // private static MoviesRepository repository = null;
 
-        private MoviesRepository()
+        public MoviesRepository()
         {
             movies = new List<Movie>();
             movies.Add(new Movie
